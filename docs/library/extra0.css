@@ -1,0 +1,125 @@
+/* Colors */
+.red {
+  color: #FF0000;
+}
+
+.blue {
+  color: #0000FF;
+}
+
+.green {
+  color: #00FF00;
+}
+
+.brown {
+  color: #FF7F00;
+}
+
+.yellow {
+  color: #FFFF00;
+}
+
+.cyan {
+  color: #00FFFF;
+}
+
+.purple {
+  color: #8B00FF;
+}
+
+
+/* font size */
+.large { 
+	font-size: 130% 
+}
+
+.small { 
+	font-size: 70% 
+}
+
+.tiny {
+	font-size: 40%
+}
+
+/* Alignment */
+.alignleft {
+ 	display: inline;
+ 	float: left;
+}
+
+.alignright {
+ 	display: inline;
+ 	float: right;
+}
+
+.aligncenter {
+ 	clear: both;
+ 	display: block;
+ 	margin:auto;
+}
+
+.cover-slide {
+	background-size: cover
+}
+
+.cover-slide h1 {
+  	color: black;
+}
+
+.cover-slide h2 {
+  	color: blue; 
+  	line-height: 1.5em;
+}
+
+.title-slide {
+	background-size: cover
+}
+
+.title-slide .remark-slide-number {
+  	display: none;
+}
+
+.title-slide h1 {
+  	color: white;
+}
+
+.title-slide h2, .title-slide h3 {
+  	color: #00FF00; 
+  	line-height: 1.5em;
+}
+
+
+.remark-slide-content:not(.title-slide):not(.cover-slide){
+ background-color: lightyellow;
+}
+
+
+p {
+  font-size: 100%;
+  background-color: transparent;
+}
+
+table {
+    width: 100%; 
+    max-width: 65em; 
+    border: 1px solid #dedede; 
+    margin: 15px auto; 
+    border-collapse: collapse; 
+    empty-cells: show; 
+}
+table th,
+table td {
+  height: 35px; 
+  border: 2px solid #dedede; 
+  padding: 0 10px; 
+}
+table tbody tr:nth-child(2n) {
+    background: rgba(158,188,226,0.12); 
+}
+table th {
+    font-weight: bold; 
+    text-align: center !important; 
+    background: rgba(158,188,226,0.2); 
+}
+
+
