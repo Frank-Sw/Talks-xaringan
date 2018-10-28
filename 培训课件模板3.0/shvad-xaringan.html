@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>数萃培训模板</title>
+    <meta charset="utf-8">
+    <meta name="author" content="汤银才" />
+    <link rel="stylesheet" href="library/zh-CN.css" type="text/css" />
+    <link rel="stylesheet" href="library/extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle, cover-slide
+background-image: url(./figures/bdbg.jpg)
+background-position: 50% 50%
+background-size: cover
+
+
+
+
+
+
+&lt;script type="text/x-mathjax-config"&gt;
+    MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],  
+        jax: ["input/TeX", "output/HTML-CSS"], 
+        tex2jax: {
+            inlineMath: [
+                ['$', '$'],
+                ['\\(', '\\)']
+            ],
+            displayMath: [
+                ['$$', '$$'],
+                ["\[", "\]"]
+            ],
+            processEscapes: true
+        },
+        TeX: {
+            extensions: ["AMSmath.js", "AMSsymbols.js"],
+            equationNumbers: {
+                autoNumber: ["AMS"],
+                useLabelIds: true
+            },
+            Macros: {
+                hfill: "{}",
+                RR: ['{\\bf R}'],
+                rmd: ['\\mathrm{d}'],
+                mbb: ['\\mathbb'],
+                veps: ['\\varepsilon'],
+                abs: ['\\left| #1 \\right|',1],
+                du: ['^\\circ'],
+                myHearts: ['\\color{#1}{\\heartsuit}\\kern-2.5pt\\color{#2}{\\heartsuit}', 2],
+                san: ['a_1+a_2+\\dots+a_n'],
+                sak: ['a_1+a_2+\\dots+a_{#1}', 1],
+                sxk: ['{#1}_1+{#1}_2+\\dots+{#1}_{#2}', 2],
+                bold: ['\\bf #1', 1],
+                bm: '\\boldsymbol'
+            }
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true
+            },
+            availableFonts: ["TeX"],
+            scale: 110
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true
+            }
+        }
+    });
+&lt;/script&gt;
+&lt;script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"&gt;
+&lt;/script&gt;
+
+
+
+&lt;img src="figures/shvad-logo.png" width="250px"; height="250px"; style="position:absolute; left:0px; top:0px; "&gt;
+
+&lt;img src="figures/shvad-copy.png" width="80px"; height="690px"; style="position:absolute; right:0px; top:0px; "&gt;
+
+
+# 数萃大数据学院
+## 培训课程模板
+
+
+
+---
+class: center, middle, cover-slide
+background-image: url() 
+background-position: top left
+background-size: 250px 140px
+background-color: lightyellow
+
+&lt;img src="figures/tyc-201.png" width="250px"; height="250px"; style="position:absolute; right:80px; top:0px; "&gt;
+
+&lt;img src="figures/shvad-gzh.png" width="250px"; height="250px"; style="position:absolute; left:0px; bottom:0px; "&gt;
+
+&lt;img src="figures/shvad-copy.png" width="80px"; height="690px"; style="position:absolute; right:0px; top:0px; "&gt;
+
+# 标题
+### 汤银才
+#### 培训日期
+
+---
+# 提纲
+
+#### 1. xaringan安装
+#### 2. xaringan 包的使用
+#### 3. 一些小技巧
+
+
+---
+class: inverse,middle,center, title-slide
+
+# xaringan安装
+
+---
+
+[**xaringan**](https://github.com/yihui/xaringan) 
+由[remark.js](https://remarkjs.com)、[**knitr**](http://yihui.name/knitr)、以及 [R Markdown](https://rmarkdown.rstudio.com)生成。
+
+首先从 [Github](https://github.com/yihui/xaringan) 安装 **xaringan** 包：
+
+
+```r
+if (!requireNamespace("xaringan"))
+  devtools::install_github("yihui/xaringan")
+```
+
+--
+
+建议安装 [RStudio 编辑器](https://www.rstudio.com/products/rstudio/)，它会让你做幻灯片做得飞起。
+
+- 从菜单 `File -&gt; New File -&gt; R Markdown -&gt; From Template -&gt; Ninja Presentation (Simplified Chinese)` 创建一个新文档；
+
+--
+
+- 点击 `Knit` 按钮编译文档；
+
+--
+
+- 或者点击 [RStudio 插件](https://rstudio.github.io/rstudioaddins/)&lt;sup&gt;*&lt;/sup&gt; “Infinite Moon Reader” 在 RStudio 里实时预览幻灯片（每次你保存文档的时候，它会自动重新编译）；
+
+
+---
+class: inverse,middle,center, title-slide
+
+# xaringan 包的使用
+
+---
+class: inverse,middle,center, title-slide
+
+## R 代码与输出
+
+---
+
+# R 代码
+
+
+```r
+# 一个无聊的回归模型
+fit = lm(dist ~ 1 + speed, data = cars)
+coef(summary(fit))
+```
+
+```
+#               Estimate Std. Error   t value     Pr(&gt;|t|)
+# (Intercept) -17.579095  6.7584402 -2.601058 1.231882e-02
+# speed         3.932409  0.4155128  9.463990 1.489836e-12
+```
+
+```r
+dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
+grep('天', dojutsu, value = TRUE)
+```
+
+```
+# [1] "地爆天星" "天照"
+```
+
+---
+
+# R 图形
+
+
+```r
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+abline(fit, lwd = 2)
+```
+
+&lt;img src="shvad-xaringan_files/figure-html/cars-1.svg" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+class: inverse,middle,center, title-slide
+
+## 插入数学公式
+
+---
+
+### 数学公式用 Mathjax/LaTeX 语法
+
+1. 行中公式: `\(\alpha+\beta\)`
+
+1. 独立行公式：
+
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^nX_j $$
+
+1. 扩展: 借助TeX语法
+
+    1. 通过Mathjax更多设置还可支持公式的标号
+
+    1. Mathjax支持公式的浮动引用， 如下面的公式\eqref{eq-mean}
+
+\begin{equation}\label{eq-mean}
+\overline{X}=\frac{1}{n}\sum_{i=1}^nX_i. \end{equation}
+
+---
+### 多行公式
+
+
+.pull-left[
+```
+源代码:
+*$$\begin{aligned}
+x &amp; =  \cos(t) \\
+y &amp; =  \sin(t) \\
+z &amp; =  \frac xy
+*\end{aligned}$$
+```
+
+输出结果:
+`$$\begin{aligned}
+x &amp; =  \cos(t) \\
+y &amp; =  \sin(t) \\
+z &amp; =  \frac xy
+\end{aligned}$$`
+]
+
+.pull-right[
+
+```
+源代码:
+*$$F^{HLLC}=\left\{
+*\begin{array}{rcl}
+F_L   &amp; &amp; {0     &lt;      S_L}\\
+F^*_L &amp; &amp; {S_L \leq 0 &lt; S_M}\\
+F^*_R &amp; &amp; {S_M \leq 0 &lt; S_R}\\
+F_R   &amp; &amp; {S_R \leq 0}
+*\end{array} 
+*\right.$$
+```
+输出结果: 
+`$$F^{HLLC}=\left\{
+\begin{array}{rcl}
+F_L   &amp; &amp; {0     &lt;      S_L}\\
+F^*_L &amp; &amp; {S_L \leq 0 &lt; S_M}\\
+F^*_R &amp; &amp; {S_M \leq 0 &lt; S_R}\\
+F_R   &amp; &amp; {S_R \leq 0}
+\end{array} \right.$$`
+]
+
+
+
+---
+class: inverse,middle,center, title-slide
+
+## 插入图片
+
+---
+
+### 本地图片-1
+```
+&lt;div style="text-align: center"&gt;
+
+&lt;img src="./figures/bdbg.jpg" width="550" height="375" /&gt;
+```
+&lt;div style="text-align: center"&gt;
+
+&lt;img src="./figures/bdbg.jpg" width="550" height="375" /&gt;
+
+---
+
+### 本地图片-2
+```
+&lt;div style="text-align: center"&gt;
+
+&lt;img src="./figures/bdbg.jpg" width="75%" /&gt;
+```
+
+&lt;div style="text-align: center"&gt;
+&lt;img src="./figures/bdbg.jpg" width="75%" /&gt;
+
+---
+
+### 本地图片-3
+
+
+```
+.center[![](./figures/bdbg.jpg)]
+
+```
+
+.center[![](./figures/bdbg.jpg)]
+
+---
+class: inverse,middle,center, title-slide
+
+## 插入表格
+
+---
+
+### 1. xtable 
+
+### 2. tibble
+
+### 3. knitr::kable
+
+### 4. kableExtra
+
+### 5. broom
+
+### 6. pixiedust
+
+
+---
+class: inverse,middle,center, title-slide
+
+# 一些小技巧
+
+---
+
+# 小技能: 月读 (moon_reader)
+
+**xaringan** 包提供了一个 R Markdown 输出格式 `xaringan::moon_reader`，你可以在 R Markdown 文档的元数据中使用它，例：
+
+```yaml
+---
+title: "啧啧啧，厉害啊"
+author: "张三"
+date: "2016年12月12日"
+output:
+  xaringan::moon_reader
+    nature:
+      autoplay: 30000
+      highlightStyle: github
+---
+```
+
+欲知所有可能的选项，参见 R 帮助文档 `?xaringan::moon_reader`。
+
+---
+
+# 小技能: 选项
+
+- “Infinite Moon Reader”插件默认情况下会锁住你的 R 进程，有它没你，有你没它。你可以设置一个选项，让它一边儿凉快去：
+
+    ```r
+    options(servr.daemon = TRUE)
+    ```
+    
+    你可以把这个设置写在 `~/.Rprofile` 文件中，这样你将来所有 R 进程都不会被这个插件挡住去路。
+    
+    这事情背后的魔法在 [**servr**](https://github.com/yihui/servr) 包中。
+
+--
+- `nature` 下面的 `autoplay` 选项可以用来自动播放幻灯片，它的取值是毫秒，例如每 30 秒播放一张片子：
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          autoplay: 30000
+    ```
+
+
+---
+
+# 小技能: 选项
+
+- 选项 `highlightLines: true` 可以让以 `*` 开头或者双重大括号 `{{ }}` 里面的代码被高亮出来；
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          highlightLines: true
+    ```
+--
+
+- 支持分页显示，注意xaringan中不同数目横线的使用
+
+    ```r
+    -   # 列表
+    --  # 分页
+    --- # 另起新的slide
+    ```
+
+---
+
+# 小技能: 双栏输出
+
+.pull-left[
+以 `*` 开头的代码：
+```r
+  if (TRUE) {
+  ** message("敲黑板！划重点！")
+  }
+```
+输出：
+```r
+if (TRUE) {
+* message("敲黑板！划重点！")
+}
+```
+因为它不是合法的 R 代码，所以不能作为 R 代码段来写，只能用三个反引号直接跟。
+]
+
+--
+.pull-right[
+用 `{{}}` 包裹的代码：
+
+```{r tidy=FALSE}
+  if (TRUE) {
+  *{{ message("敲黑板！划重点！") }}
+  }
+```
+输出：
+
+```r
+if (TRUE) {
+* message("敲黑板！划重点！") 
+}
+```
+
+```
+## 敲黑板！划重点！
+```
+这是合法的 R 代码，所以你可以真的运行它。
+]
+
+---
+
+# 小技能: CSS（层叠样式表）
+
+`xaringan::moon_reader` 的所有选项中，最强的魔法在 `css` 选项上，它是自定义幻灯片样式的关键。
+
+对中文幻灯片，**xaringan** 包中的默认 CSS 文件在[zh-CN.css](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan_zh-CN/skeleton/zh-CN.css)，你可以在它的基础上改装，也可以直接定义全新的 CSS 样式。
+
+--
+
+举个栗子。比如你想将一段文字的颜色改为红色，你可以定义一个 CSS 类，如：
+
+```css
+.red {
+  color: #FF0000;
+}
+```
+
+我们把这段代码保存在一个 CSS 文件中，如 `extra.css`（假设它跟你的 R Markdown 文件在同一文件夹下），然后通过 `css` 选项将它引入：
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: ["zh-CN.css", "extra.css"]
+```
+--
+现在 .red[R Markdown] 是红色的了。
+
+
+---
+class: inverse,middle,center, title-slide
+
+## 快击键
+
+---
+# 结印
+
+使用本包单手就可以结印，按键 `h` 或者 `?` 之后就可以看见所有结印手势，例如 `p` 进入演讲者模式（可看见写给自己的注释，比如提醒自己要讲的笑话），`c` 复制幻灯片到新窗口；演讲时可以在自己面前的屏幕上显示演讲者模式，把新窗口中正常的幻灯片拖到大屏幕投影上给观众看。
+
+.center[![](./figures/Mudra-Naruto-KageBunshin.svg)]
+
+???
+
+嗯，我们来讲一个不容易看懂的冷笑话。
+
+![](./figures/Mudra-Naruto-KageBunshin.svg)
+
+
+---
+class: inverse,middle,center,title-slide
+
+
+# 课程总结
+
+---
+class: inverse,middle,center,title-slide
+
+&lt;img src="figures/shvad-gzh.png" width="250px"; height="250px"; style="position:absolute; left:0px; bottom:0px; "&gt;
+
+&lt;img src="figures/shvad-copy.png" width="80px"; height="690px"; style="position:absolute; right:0px; top:0px; "&gt;
+
+## 谢谢!
+    </textarea>
+<script src="./library/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
