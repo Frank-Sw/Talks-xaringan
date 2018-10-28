@@ -1,0 +1,467 @@
+\documentclass[12pt,hyperref,]{ctexart}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[tmargin=1.8cm, bmargin=1.8cm, lmargin=2.1cm, rmargin=2.1cm]{geometry}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={《R语言基础》教学大纲},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+\title{《R语言基础》教学大纲}
+\author{大数据分析基础系列}
+\date{}
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{xeCJK,ctex}
+\usepackage{bm,xcolor}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LE,LO]{《R语言基础》}
+\fancyhead[RE,RO]{《大数据分析基础》系列}
+\fancyfoot[RE,RO]{\thepage}
+\fancyfoot[CO,CE]{上海数萃大数据学院}
+\renewcommand{\headrule}{{\color{red}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+\renewcommand{\footrule}{{\color{black}\vskip-\footruleskip\vskip-\footrulewidth \hrule width\headwidth height\footrulewidth\vskip\footruleskip}}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.6pt}
+\renewcommand\contentsname{\bfseries 大纲目录}
+\usepackage[sf,raggedright]{titlesec}
+\usepackage{titletoc}
+\titleformat{\section}{\bfseries\large\color{blue}}{\bfseries\thesection}{0.5em}{}
+\titlespacing{\section}{0pt}{3.5ex plus .1ex minus .2ex}{1.5\wordsep}
+\hypersetup{colorlinks=true, breaklinks=true, linkcolor=blue}
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+
+\noindent\textbf{课程名称}: R语言基础
+
+\noindent\textbf{适合专业}:
+数据科学与大数据技术、大数据技术与应用、统计学、应用统计学、统计统计、应用数学等本科专业
+
+\section{课程目的、任务}
+
+本课程是为数据科学与大数据技术及相关专业学生开设的一门课程，《R语言基础》是一门基于R进行数据分析的基础课程，本课程的目的是帮助学生从零开始对R语言有全方位了解，掌握R语言数据处理、统计分析和可视化最为基础知识、技术和基本应用，为使用R语言进行深入的数据分析与行业应用打下扎实的基础。本课程是后期统计分析、机器学习、可视化等相关课程的预修课程。
+
+\section{课程简介}
+
+\begin{itemize}
+\item
+  R语言是一个自由、免费、源代码开放的语言环境。它功能完备，语言灵活且不依赖操作系统，是一个用于统计计算和统计制图的优秀工具。在2010
+  年，美国统计协会（ ASA）授予R
+  语言为(第⼀届)统计计算及图形奖。截止目前为止，R是数据科学领域使用用户最多的数据挖掘与编程语言，且其用户数量在不断增加。R已经成为几乎所有国内外高校统计类课程标配的教学软件，R的书集遍及经济、金融、生物、医学、生态、电子商务、航空、旅游、心理、法律等各个领域，并成大数据分析的宠儿:
+  覆盖机器学习、人工智能和可视化等。R语言在国内业界也逐步成为主流的分析工具，每年全国性的R语言会议推进R的迅猛发展。
+\item
+  本课程共5大模块，从R入门、R数据集创建与管理、R绘图初步、R数据探索与比较分析和R统计建模等方面，让零基础学员从各个角度对R的使用进行学习。
+\item
+  本课程为基础课程，学员可以通过学习对R语言进行全方位的了解与掌握，并为R的进阶学习与实际数据分析做好基础铺垫。
+\end{itemize}
+
+\section{教学方式和实践环节的特色}
+
+\begin{itemize}
+\item
+  教学方式：课堂讲授，配合大数据平台演示。
+\item
+  实践环节：
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    课堂讲授中提供一定的思考题供学生练习或讨论；
+  \item
+    课后布置作业，作业量2---3小时，作业中以基本练习为主。
+  \end{enumerate}
+\end{itemize}
+
+\section{教材及参考书目}
+
+\begin{itemize}
+\item
+  建议教材:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    R.I. Kabacoff著, 高涛,肖南, 陈钢译, R语言实战(R in Action: Data
+    Analysis and Graphics with R), 人民邮电出版社, 2013.
+  \item
+    徐珉久{[}韩{]}, 武传海 (译). R语言与数据分析实战.
+    中国工信出版集团，人民邮电出版社, 2017.1
+  \end{enumerate}
+\item
+  参考书目:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    汤银才, R语言与统计分析, 高等教育出版社. 2008
+  \item
+    Joseph Adler, R in a Nutshell, California: O'Reilly Meda, Inc., 2nd
+    Ed. 2012.
+  \item
+    Jared P. Lander, R for Everyone: Advanced Analytics and Graphics.
+    New York: Addison-Wesley. 2014.
+  \item
+    Hadley Wickham, Garrett Grolemund, R for Data Science -
+    Import，Tidy，Transform，Visualize, and Model data, O'Reilly. 2017.
+  \item
+    Jim Albert, M. Rizzo, R by example, Springer, 2012.
+  \item
+    Prabhanjan N. Tattar, Suresh Ramaiah, B.G. Manjunath. A Course in
+    Statistics with R(ACSWR), for master students. Wiley. 2016. {[}*{]}
+  \item
+    Norman Matloff. The art of R programming, No Starch Press, inc.,
+    2011.
+  \item
+    Paul Murrell, R Graphics, Chapman \& Hall/CRC. 2006.
+  \item
+    Deepayan Sarkar, Lattice: Multivariate Data Visualization with R,
+    Springer. 2008.
+  \item
+    Hadley Wickham, ggplot2: Elegant Graphics for Data Analysis,
+    Springer. 2009. (中译本: 殷腾飞,统计之都, 2014)
+  \item
+    Donato Teutonico, ggplot2 Essentials, PACKT, 2015.
+  \item
+    Alboukadel Kassambara, ggplot2 - Guide to Create Beautiful Graphics
+    in R (2nd Ed). 2013.
+  \item
+    Mark P.J. van der Loo, Edwin de Jonge, Learning Rstudio for R
+    Statistical Computing. PACKT, 2012.
+  \item
+    John Verzani, Getting Started with Rstudio, OReilly, 2011.
+  \item
+    Nicholas J. Horton and Ken Kleinman. Using R and RStudio for Data
+    Management Statistical Analysis and Graphics(2nd Ed.)，2015.
+  \end{enumerate}
+\end{itemize}
+
+\section{考核方式与评价结构比例}
+
+\begin{itemize}
+\item
+  考核内容为：平时表现、作业完成情况、平时测验、期终闭卷考试。
+\item
+  评价结构比例：
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    总评成绩由平时成绩和考试成绩两部分组成，一般平时成绩占40\%，考试成绩占60\%。
+  \end{enumerate}
+
+  2．平时成绩由平时表现、作业、平时测验成绩组成，一般平时表现占10\%，作业占30\%，平时测验成绩占60\%。
+\end{itemize}
+
+\section{讲授大纲}
+
+\textbf{M1：R入门}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  大数据与数据科学
+
+  \begin{itemize}
+  \tightlist
+  \item
+    数据科学与分析工具
+  \item
+    R及其优势
+  \item
+    R安装与配置
+  \item
+    R包安装与使用
+  \item
+    R资源与帮助
+  \end{itemize}
+\item
+  R快速入门教程
+
+  \begin{itemize}
+  \tightlist
+  \item
+    R中的基本语法
+  \item
+    R中的数据对象及其属性
+  \item
+    R的工作空间与管理
+  \item
+    R编程基础
+  \item
+    R程序调试
+  \end{itemize}
+\item
+  R编辑器与RStudio
+
+  \begin{itemize}
+  \tightlist
+  \item
+    R常用编辑器
+  \item
+    Rstudio功能与使用技巧
+  \item
+    Rstudio进阶
+  \item
+    项目管理
+  \end{itemize}
+\item
+  Rmarkdown介绍
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Rmarkdown
+  \item
+    文学化统计编程
+  \end{itemize}
+\end{enumerate}
+
+\textbf{M2：R数据集创建与管理}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  数据集的创建与处理
+
+  \begin{itemize}
+  \item
+    常用数据对象与创建
+  \item
+    数据的读取
+  \item
+    数据的存储
+  \item
+    数据集的处理
+  \item
+    数据集的合并与子集提取
+  \item
+    缺失值的处理
+  \item
+    数据表数据的切片、切块与组合
+  \end{itemize}
+\item
+  向量的操作
+
+  \begin{itemize}
+  \item
+    合并数据框的行(向量)与列(向量)
+  \item
+    apply系列函数
+  \item
+    数据分组并调用函数
+  \item
+    数据拆分与合并
+  \item
+    数据排序
+  \item
+    访问数据中的列
+  \item
+    查找符合条件的数据索引
+  \item
+    分组运算
+  \end{itemize}
+\item
+  数据对象的其他操作
+
+  \begin{itemize}
+  \item
+    赋值与常用运算
+  \item
+    基本的数学运算
+  \item
+    用于矩阵的运算
+  \item
+    正则表达式
+  \item
+    与统计分布相关的函数
+  \end{itemize}
+\end{enumerate}
+
+\textbf{M3：R绘图初步}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  基本的绘图命令
+
+  \begin{itemize}
+  \tightlist
+  \item
+    大趋势：信息可视化
+  \item
+    R绘图基础: 低级与高级绘图命令
+  \item
+    基本绘图函数: plot, points, lines, curve，par
+  \item
+    绘图三要素设置详解(颜色，点型，线型)
+  \item
+    绘图信息补充(title,text,legend,axis)
+  \item
+    R窗口和图形设备（X11，pdf，png）
+  \end{itemize}
+\item
+  一维数据的可视化
+
+  \begin{itemize}
+  \tightlist
+  \item
+    常用统计分布与4类函数
+  \item
+    一维离散变量的分布图示
+  \item
+    一维连续变量的分布图示
+  \item
+    一维连续分布诊断图
+  \item
+    非参数密度估计与展示
+  \end{itemize}
+\item
+  多维数据的可视化
+
+  \begin{itemize}
+  \tightlist
+  \item
+    二个离散变量的分布图示
+  \item
+    二个混合变量的分布图示
+  \item
+    二个连续变量的分布图示
+  \item
+    多变量的可视化
+  \end{itemize}
+\end{enumerate}
+
+\textbf{M4：R统计分析初步}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  数据分析基础
+\item
+  R中常用的统计函数
+\item
+  描述性统计分析
+
+  \begin{itemize}
+  \tightlist
+  \item
+    常用描述性统计量及其计
+  \item
+    单个连续型变量描述性统计量的获取
+  \item
+    分组计算描述性统计量
+  \end{itemize}
+\item
+  相关性分析
+\item
+  相关性检验
+\end{enumerate}
+
+\textbf{M5：R统计建模}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  回归模型
+
+  \begin{itemize}
+  \tightlist
+  \item
+    lm()函数中的公式表示
+  \item
+    一元线性回归
+  \item
+    多元线性回归
+  \item
+    回归预测
+  \end{itemize}
+\item
+  分类数据的统计推断
+
+  \begin{itemize}
+  \tightlist
+  \item
+    广义线性模型概述
+  \item
+    glm()函数介绍
+  \item
+    Logistic回归
+  \item
+    Poisson回归
+  \end{itemize}
+\item
+  模型的检验与比较
+
+  \begin{itemize}
+  \tightlist
+  \item
+    回归模型诊断
+  \item
+    变量的选择
+  \item
+    模型比较
+  \item
+    异常值判断
+  \item
+    预测与交叉验证
+  \end{itemize}
+\end{enumerate}
+
+\end{document}
